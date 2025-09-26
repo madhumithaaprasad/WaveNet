@@ -1,77 +1,95 @@
-NextWave Gesture Controller (ML-Powered)
-Project Overview
-The NextWave Gesture Controller is a real-time computer vision application that uses a custom-trained Convolutional Neural Network (CNN) to recognize specific hand gestures captured by a webcam. It maps these recognized gestures to system controls (like media playback and volume), providing a novel, hands-free interface for desktop control.
+# NextWave Gesture Controller (ML-Powered)
 
-This project demonstrates strong skills in machine learning lifecycle management (Data Collection, Training, and Deployment/Integration), computer vision, and systems programming.
+The **NextWave Gesture Controller** is a real-time computer vision application that leverages a custom-trained **Convolutional Neural Network (CNN)** to recognize hand gestures from a webcam and map them to system-level controls such as media playback and volume adjustment. This project demonstrates expertise in **machine learning lifecycle management, computer vision, and systems programming**.
 
-Technical Highlights
-Model Performance: Achieved a 98.36% Test Accuracy on a balanced, custom-collected dataset.
+---
 
-Dataset: Built a proprietary dataset of over 1,000 samples of hand landmarks across three distinct gestures (peace_sign, fist, open_hand).
+## Project Overview
+- **Objective**: Provide a novel, hands-free interface for desktop control using hand gestures.  
+- **Key Skills Demonstrated**:
+  - Machine Learning (data collection, training, deployment)
+  - Real-time computer vision with MediaPipe
+  - Systems integration with Python libraries
+  - End-to-end model development and testing
 
-Real-Time Processing: Utilizes Google's MediaPipe for fast, efficient hand landmark extraction and uses a multi-layer Keras model for low-latency prediction.
+---
 
-System Integration: Employs the pynput library to map predicted gestures to actual media control commands (Play/Pause, Volume Up/Down).
+## Technical Highlights
+- **Model Performance**: Achieved **98.36% test accuracy** on a balanced, custom-collected dataset.  
+- **Dataset**: Proprietary dataset of **1,000+ samples** across three gestures (`peace_sign`, `fist`, `open_hand`).  
+- **Real-Time Processing**: Efficient landmark extraction using **Google MediaPipe** combined with a **Keras CNN** for low-latency prediction.  
+- **System Integration**: Mapped gestures to desktop controls using the **pynput** library.  
 
-Gestures and Mapped Actions
-Gesture
+---
 
-Mapped System Action
+## Gestures and Actions
 
-Description
+| Gesture      | Mapped Action       | Description                                   |
+|--------------|---------------------|-----------------------------------------------|
+| ✌️ peace_sign | Media Play/Pause    | Toggles media playback in the active window.  |
+| ✊ fist       | Volume Down         | Decreases system volume via simulated scroll. |
+| 🖐️ open_hand  | Volume Up           | Increases system volume via simulated scroll. |
 
-peace_sign
+---
 
-Media Play/Pause
-
-Toggles media playback in foreground applications.
-
-fist
-
-Volume Down (Scroll)
-
-Decreases system volume via a simulated mouse scroll.
-
-open_hand
-
-Volume Up (Scroll)
-
-Increases system volume via a simulated mouse scroll.
-
-🚀 Getting Started
-Prerequisites
-Python 3.8+
-
-A functional webcam.
-
-Installation
-Clone the repository and install all necessary dependencies using the provided requirements.txt file:
-
-# Install dependencies (ensure you are using a virtual environment)
-pip install -r requirements.txt
-
-Running the Application
-Ensure the trained model file (gesture_model.h5) and the data files (*.csv) are present in the project structure.
-
-Execute the main application loop from the project's root directory:
-
-python src/main.py
-
-The webcam window will open, and recognized actions will be displayed in the console and at the top of the video feed. Press 'q' to quit the application.
-
-Project Structure
+## Project Structure
+```
 NEXTWAVE/
-├── data/                    # Custom collected landmark data files
-│   ├── fist.csv
-│   ├── open_hand.csv
-│   └── peace_sign.csv
-├── src/                     # Main application source code
-│   ├── models/
-│   │   ├── gesture_predictor.py  # Loads and runs the trained model
-│   │   └── __init__.py
-│   └── main.py              # Main execution file (Webcam capture, integration, control)
-├── gesture_model.h5         # The final trained Keras/TensorFlow model (98.36% accurate)
-├── data_collector.py        # Script used for raw data collection
-├── train_model.py           # Script used for training and saving the model
-├── requirements.txt         # List of all Python dependencies
-└── README.md                # Project documentation
+├── data/ # Collected landmark data
+│ ├── fist.csv
+│ ├── open_hand.csv
+│ └── peace_sign.csv
+├── src/
+│ ├── models/
+│ │ ├── gesture_predictor.py # Loads and runs the trained CNN model
+│ │ └── init.py
+│ └── main.py # Main execution file (Webcam capture + system control)
+├── gesture_model.h5 # Final trained Keras/TensorFlow model (98.36% accuracy)
+├── data_collector.py # Script for raw data collection
+├── train_model.py # Script for model training and saving
+├── requirements.txt # List of Python dependencies
+└── README.md # Project documentation
+
+```
+
+## Model Details
+- **Frameworks**: TensorFlow/Keras, MediaPipe  
+- **Architecture**: Multi-layer CNN trained on normalized hand landmark vectors  
+- **Training Pipeline**:  
+  1. Data collection with `data_collector.py`  
+  2. Model training via `train_model.py`  
+  3. Deployment and inference in `main.py`  
+- **Accuracy**: 98.36% on test dataset  
+
+---
+
+## Future Enhancements
+- Expand gesture set (mute, next/previous track, brightness control).
+- Improve robustness under varying lighting and camera angles.  
+- Cross-platform compatibility (Linux/macOS).  
+- Integration with IoT devices for smart home control.  
+
+
+---
+
+## Getting Started
+
+### Prerequisites
+- Python **3.8+**
+- Functional **webcam**
+- Virtual environment recommended
+
+### Installation
+```bash
+git clone https://github.com/your-username/nextwave-gesture-controller.git
+cd nextwave-gesture-controller
+pip install -r requirements.txt
+```
+
+<img width="787" height="629" alt="image" src="https://github.com/user-attachments/assets/6890d509-adea-4b5a-9107-7052a8ee4efe" />
+<img width="792" height="636" alt="image" src="https://github.com/user-attachments/assets/8605e291-9289-4585-a7fb-b1a74fbe4bf7" />
+<img width="788" height="629" alt="image" src="https://github.com/user-attachments/assets/1ffe8865-17e4-4fa4-95fc-7266283ddcaf" />
+
+
+
+
